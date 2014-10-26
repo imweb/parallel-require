@@ -296,6 +296,8 @@
 
 import('storage');
 
+    define.amd = { jQuery: true };
+
     root.define = define;
     root.require = require;
     require.config = function (config) {
@@ -304,6 +306,6 @@ import('storage');
             .forEach(function (path) {
                 _sim[path] = paths[path];
             });
-    }
+    };
 
 })(window);
