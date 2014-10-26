@@ -118,4 +118,11 @@ define(['require', 'exports', 'module', './dep'], function (require, exports, mo
   module.exports = init;
 });
 
+// 设置命名库
+require.config({
+    paths: {
+        foo: 'libs/foo-1.1.3'
+    }
+});
+
 ```

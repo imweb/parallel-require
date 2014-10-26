@@ -298,5 +298,12 @@
 
     root.define = define;
     root.require = require;
+    require.config = function (config) {
+        var paths = config.paths;
+        Object.keys(paths)
+            .forEach(function (path) {
+                _sim[path] = paths[path];
+            });
+    }
 
 })(window);
