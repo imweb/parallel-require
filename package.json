@@ -1,0 +1,30 @@
+{
+  "name": "parallel-require",
+  "version": "1.0.0",
+  "description": "An expansion of require asynchronous model which using in Web APP",
+  "main": "dest/loader-none.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "*",
+    "gulp-uglify": "*",
+    "map-stream": "^0.1.0",
+    "mocha": "^1.21.4",
+    "should": "^4.0.4",
+    "through2": "^0.6.1",
+    "vinyl": "^0.3.2"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miniflycn/parallel-require.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miniflycn/parallel-require/issues"
+  },
+  "homepage": "https://github.com/miniflycn/parallel-require"
+}

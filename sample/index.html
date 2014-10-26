@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<script>
+var T = [+performance.now()];
+</script>
+<body>
+<div id="test"></div>
+<script src="loader.js"></script>
+<script>
+setTimeout(function () {
+	require([function (done) {
+	    require(['./main'], function (main) {
+	        main.init();
+	        done(null, main);
+	    });
+	}, function (done) {
+	    require(['http://localhost:3000/data.js?jsonpcallback=define'], function (data) {
+	        done(null, data);
+	    })
+	}], function (main, data) {
+	    main.render(data);
+	})
+}, 10);
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "sample",
+  "version": "0.0.1",
+  "main": "server.js",
+  "dependencies": {
+    "compression": "^1.0.11",
+    "connect": "^2.25.7"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
