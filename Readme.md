@@ -126,3 +126,10 @@ require.config({
 });
 
 ```
+
+### 使用指南
+> 由于是AMD的简化版，所以parallel-require有自己的适用场景，超出适用场景便不建议使用了。
+
+* 较复杂的`Web APP`或`Hybrid APP`
+* HTML非直出，甚至HTML可能利用浏览器或APP缓存机制缓存起来
+* 加载器被inline到HTML中
