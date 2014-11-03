@@ -241,7 +241,7 @@
                     }
                 });
                 parallel(deps, function (err, results) {
-                    if (err) return err();
+                    if (err) return fail(err);
                     succ.apply(undefined, results);
                 });
             // sync
