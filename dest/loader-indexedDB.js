@@ -345,7 +345,7 @@
         var paths = config.paths;
         Object.keys(paths)
             .forEach(function (path) {
-                _sim[path] = paths[path];
+                _sim[path] = paths[path] + '.js';
             });
     };
 
