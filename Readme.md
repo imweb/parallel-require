@@ -123,7 +123,7 @@ require.config({
   paths: {
     // 当没有.js?时候会自动添加.js
     foo: 'libs/foo-1.1.3'
-    // 当存在.js?时，则不会添加，别问我没什么，腾讯的需求＝ ＝
+    // 当存在.js?时，则不会添加，别问我为什么，腾讯的需求＝ ＝
     mqq: 'http://1.url.cn/mqq.js?bid=123'
   }
 });
