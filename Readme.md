@@ -120,11 +120,26 @@ define(['require', 'exports', 'module', './dep'], function (require, exports, mo
 
 // 设置命名库
 require.config({
-    paths: {
-        foo: 'libs/foo-1.1.3'
-    }
+  paths: {
+    // 当没有.js?时候会自动添加.js
+    foo: 'libs/foo-1.1.3'
+    // 当存在.js?时，则不会添加，别问我没什么，腾讯的需求＝ ＝
+    mqq: 'http://1.url.cn/mqq.js?bid=123'
+  }
 });
 
+// 设置shim
+require.config({
+  paths: {
+    zepto: 'http://pub.idqqimg.com/guagua/qiqimobile/js/libs/zepto.min-e0859e89'
+  },
+  shim: {
+    zepto: {
+      // 目前只提供exports，暂不考虑提供其他能力
+      exports: 'Zepto'
+    }
+  }
+});
 ```
 
 ### 使用指南

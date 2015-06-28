@@ -2,7 +2,8 @@
     'use strict';
 
     var Cache = {},
-        _sim = {},
+        _paths = {},
+        _shim,
         _stack = [],
         _head = document.getElementsByTagName('head')[0],
         _require,
@@ -76,7 +77,7 @@
     function _initCache(path) {
         return Cache[path] = {
             dones: [], 
-            url: _sim[path] || path, 
+            url: _paths[path] || path, 
             loaded: false
         };
     }
@@ -141,6 +142,16 @@
     }
 
     function _makeMod(src) {
+        var url = Cache[src].url,
+            shim = _shim[src];
+        // do something for sim
+        if (shim) {
+            _stack.push({
+                m: src,
+                d: [],
+                f: function () { return root[shim.exports] }
+            });
+        }
         var url = Cache[src].url;
         _stack.forEach(function (o) {
             if (!o.m) o.m = src;
@@ -319,11 +330,15 @@
     root.define = define;
     root.require = require;
     require.config = function (config) {
-        var paths = config.paths;
+        var paths = config.paths, tmp;
         Object.keys(paths)
             .forEach(function (path) {
-                _sim[path] = paths[path] + '.js';
+                tmp = _paths[path] = paths[path];
+                // need to add .js or not
+                !(~tmp.indexOf('.js?')) &&
+                    (_paths[path] = tmp + '.js'); 
             });
+        _shim = config.shim || {};
     };
 
 })(window);

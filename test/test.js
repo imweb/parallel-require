@@ -1,7 +1,14 @@
 describe('require', function () {
     require.config({
-         paths: {
-            'jquery': 'http://7.url.cn/edu/jslib/jquery/1.9.1/jquery.min.js'
+        paths: {
+            'jquery': 'http://7.url.cn/edu/jslib/jquery/1.9.1/jquery.min',
+            'zepto': 'http://pub.idqqimg.com/guagua/qiqimobile/js/libs/zepto.min-e0859e89',
+            'mqq': 'http://pub.idqqimg.com/qqmobile/qqapi.js?_bid=152'
+        },
+        shim: {
+            zepto: {
+                exports: 'Zepto'
+            }
         }
     })
 
@@ -34,8 +41,22 @@ describe('require', function () {
 
     it('should able to get a name module', function (done) {
         require(['jquery'], function ($) {
-            console.log($);
+            $.should.equal(window['jQuery']);
             done();
         })
+    });
+
+    it('should able to require zepto', function (done) {
+        require(['zepto'], function ($) {
+            $.should.equal(window['Zepto']);
+            done();
+        });
+    });
+
+    it('should able to require mqq', function (done) {
+        require(['mqq'], function (mqq) {
+            ('QQVersion' in mqq).should.be.true;
+            done();
+        });
     });
 });
